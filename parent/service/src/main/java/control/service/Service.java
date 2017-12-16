@@ -7,6 +7,7 @@ public class Service {
     private Repository repository = new Repository();
 
     public String getHelloFromService() {
+        System.out.println("Hello from Service! ");
         return "Hello from Service! ";
     }
 
