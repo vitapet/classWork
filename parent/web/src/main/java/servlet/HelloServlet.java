@@ -18,14 +18,11 @@ public class HelloServlet extends HttpServlet {
         String repoMes = service.getHelloFromRepository();
         String servMes = service.getHelloFromService();
         String webMes = "Hello from Web! ";
+        System.out.println(webMes);
         String message = repoMes + servMes + webMes;
         FileWork fileWork = new FileWork(getClass().getClassLoader().getResource("test.txt").getFile());
         String[] items = new String[]{repoMes, servMes, webMes};
-
         fileWork.writeToFile(items);
-        System.out.println(service.getHelloFromRepository());
-        System.out.println(service.getHelloFromService());
-        System.out.println("Hello from Web! ");
         req.setAttribute("message", message);
         req.getRequestDispatcher("WEB-INF/jsp/hello.jsp").forward(req, resp);
     }
